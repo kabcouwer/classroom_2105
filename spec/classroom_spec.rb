@@ -50,7 +50,7 @@ end
 # Iteration 3
 describe Classroom do
   context 'Capacity' do
-    it 'is the classroom over capacity' do
+    it 'is over capacity' do
       classroom = Classroom.new('History', 4)
       classroom.add_student('Mike')
       classroom.add_student('Megan')
@@ -61,7 +61,7 @@ describe Classroom do
   end
 
   context 'Capacity' do
-    it 'is the classroom over capacity' do
+    it 'is over capacity after adding students' do
       classroom = Classroom.new('History', 4)
       classroom.add_student('Mike')
       classroom.add_student('Megan')
@@ -74,5 +74,36 @@ describe Classroom do
   end
 
 
+# Iteration 4
+  context 'Capacity' do
+    it 'is over capacity after kick out' do
+      classroom = Classroom.new('History', 4)
+      classroom.add_student('Mike')
+      classroom.add_student('Megan')
+      classroom.add_student('Bob')
+      classroom.add_student('James')
+      classroom.add_student('Cat')
+      classroom.add_student('Alice')
+      classroom.kick_out
+
+      expect(classroom.over_capacity).to eq (true)
+    end
+  end
+
+  context 'Capacity' do
+    it 'is over capacity after another kick out' do
+      classroom = Classroom.new('History', 4)
+      classroom.add_student('Mike')
+      classroom.add_student('Megan')
+      classroom.add_student('Bob')
+      classroom.add_student('James')
+      classroom.add_student('Cat')
+      classroom.add_student('Alice')
+      classroom.kick_out
+      classroom.kick_out
+
+      expect(classroom.over_capacity).to eq (false)
+    end
+  end
 
 end

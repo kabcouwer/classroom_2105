@@ -34,5 +34,8 @@ class Classroom
   end
 
   def kick_out
+    @kick_out = students.shift
+    return students
+  end
 
 end
